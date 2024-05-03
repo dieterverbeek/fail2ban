@@ -1,0 +1,17 @@
+
+version: '3'
+
+services:
+  fail2ban:
+    image: crazymax/fail2ban:latest
+    container_name: fail2ban-container
+    restart: always
+    volumes:
+      - /var/log:/var/log
+      - ./jail.local:/etc/fail2ban/jail.local
+    network_mode: host
+    environment:
+      TZ: "Europe/Brussels"   # Set the timezone to Brussels, Belgium
+
+
+
